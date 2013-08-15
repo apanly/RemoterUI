@@ -3,8 +3,12 @@ class defaultController extends Controller
 {
     public function defaultAction()
     {
+        $type=trim($_GET['type']);
+        if(!in_array($type,array("tv","air"))){
+            $type="tv";
+        }
         $uitarget=new infrared();
-        $tvconfig=$uitarget->getConfig('tv');
+        $tvconfig=$uitarget->getConfig($type);
         $this->data=$this->formatLine($tvconfig);
         return $this->render("default");
     }

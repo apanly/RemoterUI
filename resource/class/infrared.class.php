@@ -4,6 +4,7 @@ class infrared
      private $config=array();
      public function __construct(){
            $this->initTV();
+           $this->initAir();
      }
      private function initTV(){
          $config=array();
@@ -27,6 +28,14 @@ class infrared
          $config['A/T']='01';
          $this->config['tv']=$config;
      }
+
+     private function initAir(){
+         $config=array();
+         $config['开/关']='2a';
+         $config['温度']='15';
+         $this->config['air']=$config;
+     }
+
 
       public function getConfig($type){
           if(isset($this->config[$type])){
