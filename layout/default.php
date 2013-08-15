@@ -18,13 +18,13 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="">
-                        <a href="/">电视</a>
+                        <a class="custom-font" href="/">电视</a>
                     </li>
                     <li class="">
-                        <a  class="bootstro">空调</a>
+                        <a  class="custom-font">空调</a>
                     </li>
                     <li class="">
-                        <a  class="bootstro">自定义</a>
+                        <a  class="custom-font">自定义</a>
                     </li>
                 </ul>
             </div>
