@@ -18,13 +18,12 @@ var commonC={
             url:httpurl,
             dataType:'json',
             success:function(res){
-                alert(1);
                 callback({'data':res,"extra":extra});
             }
         });
     },
     callback:function(cldata){
-        console.log(cldata);
+        //console.log(cldata);
     }
 }
 
