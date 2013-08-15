@@ -24,7 +24,7 @@ class infrared
          $config['频道-']='07';
          $config['开/关']='20';
          $config['声音-']='04';
-         $config['AV/TV']='01';
+         $config['A/T']='01';
          $this->config['tv']=$config;
      }
 
