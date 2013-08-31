@@ -24,7 +24,7 @@
                         <a  class="custom-font" href="index.php?type=air">空调</a>
                     </li>
                     <li class="">
-                        <a  class="custom-font">自定义</a>
+                        <a  class="custom-font" href="index.php?a=custom">自定义</a>
                     </li>
                 </ul>
             </div>

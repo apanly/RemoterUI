@@ -12,7 +12,9 @@ class defaultController extends Controller
         $this->data=$this->formatLine($tvconfig);
         return $this->render("default");
     }
-
+    public function customAction(){
+        return $this->render("default");
+    }
     public function zmqAction(){
         $cmd=trim($_GET['cmd']);
         $queue = new ZMQSocket(new ZMQContext(), ZMQ::SOCKET_REQ, "MySock1");
