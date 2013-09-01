@@ -32,4 +32,9 @@ class defaultController extends Controller
       }
       return $returnVal;
     }
+
+    public function getcmdtipsAction(){
+        $uitarget=new infrared();
+        return json_encode($uitarget->getAllCofing());
+    }
 }

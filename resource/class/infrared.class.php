@@ -43,4 +43,15 @@ class infrared
           }
           return array();
       }
+
+      public function getAllCofing(){
+          $retval=array();
+          $config=$this->config;
+          foreach($config as $key=>$item){
+              foreach($item as $subkey=>$subitem){
+                  $retval[]=array("label"=>"{$key}-{$subkey}","value"=>$subitem);
+              }
+          }
+          return $retval;
+      }
 }

@@ -2,6 +2,7 @@
 var commonC={
     init:function(){
          this.initEvent();
+         this.autofix();
     },
     initEvent:function(){
         var that=this;
@@ -47,6 +48,43 @@ var commonC={
            var content="<span>"+msg+"<br/></span>";
            target.append(content);
        }
+    },
+    autofix: function () {
+        $.ajax({
+            url: "index.php?a=getcmdtips",
+            type: 'POST',
+            dataType: "json",
+            data: {
+                type: "code",
+                maxRows: 12
+            },
+            success: function (data) {
+                var options={
+                    source: data,
+                    minChars: 1,
+                    max: 5,
+                    scroll: true,
+                    autoFill: true,
+                    mustMatch: true,
+                    matchContains: false,
+                    scrollHeight: 50,
+                    select:function( event, ui ){
+                        $("#code").val(ui.item.label);
+                        $("#codecmd").val(ui.item.value);
+                        return false;
+                    },
+                    response: function( event, ui ) {
+                    }
+                };
+                //添加autocomplete
+                if($("#code")){
+                    $("#code").autocomplete(options);
+                }
+            }
+        });
+
+
+
     }
 }
 

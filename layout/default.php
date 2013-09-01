@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="static/css/jquery-ui.custom.min.css" rel="stylesheet" media="screen">
     <link href="static/css/common.css" rel="stylesheet" media="screen">
 </head>
 <body>
@@ -33,6 +34,7 @@
 </div>
 <?php echo $layoutContent;?>
 <script src="static/js/jquery.js"></script>
+<script src="static/js/jquery-ui.custom.min.js"></script>
 <script src="static/js/common.js"></script>
 <script src="static/bootstrap/js/bootstrap.min.js"></script>
 </body>
