@@ -61,13 +61,13 @@ var commonC={
             success: function (data) {
                 var options={
                     source: data,
-                    minChars: 1,
+                    minChars: 2,
                     max: 5,
                     scroll: true,
                     autoFill: true,
                     mustMatch: true,
                     matchContains: false,
-                    scrollHeight: 50,
+                    matchCase:true,
                     select:function( event, ui ){
                         $("#code").val(ui.item.label);
                         $("#codecmd").val(ui.item.value);
