@@ -67,6 +67,14 @@ var commonC={
     log:function(msg){
        var target=$("#msg");
        if(target.size()>0){
+           var fixcnt=9;
+           var spantarget=target.find("span");
+           if(spantarget.size()>fixcnt){
+               var diff =spantarget.size()-fixcnt;
+               for(var i=0;i<diff;i++){
+                   $(spantarget.get(0)).remove();
+               }
+           }
            var content="<span>"+msg+"<br/></span>";
            target.append(content);
        }else{
