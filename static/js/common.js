@@ -62,13 +62,16 @@ var commonC={
         });
     },
     callback:function(cldata){
-        commonC.log(cldata.data.message);
+        commonC.log("提示:"+cldata.data.message);
     },
     log:function(msg){
-        var target=$("#msg");
-       if(target){
+       var target=$("#msg");
+       if(target.size()>0){
            var content="<span>"+msg+"<br/></span>";
            target.append(content);
+       }else{
+           target=$("#msgtips");
+           target.html(msg);
        }
     },
     autofix: function () {

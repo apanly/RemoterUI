@@ -8,4 +8,7 @@
             </div>
         <?php endforeach;?>
     <?php endif;?>
+    <div class="row-fluid">
+        <div class="alert alert-success" id="msgtips"></div>
+    </div>
 </div>
