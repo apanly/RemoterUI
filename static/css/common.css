@@ -31,3 +31,16 @@
     -khtml-opacity: 0.9;    /* for really really old safari */
     opacity: 0.9;    /* css standard, currently it works in most modern browsers like firefox,  */
 }
+
+.ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+/* IE 6 doesn't support max-height
+* we use height instead, but this forces the menu to always be this tall
+*/
+* html .ui-autocomplete {
+    height: 100px;
+}

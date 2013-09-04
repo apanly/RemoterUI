@@ -19,15 +19,35 @@ var commonC={
             })
         });
        $(".container-fluid #command").click(function(){
+           var codecmd= $.trim($("#codecmd").val());
            var code= $.trim($("#code").val());
-           if(code.length>0){
-               that.log("发送命令："+code);
-               var uri="index.php?a=zmq&cmd="+code;
+           if(codecmd.length>0 || code.length>0){
+               if(/^[\d\w]+$/.test(code)){
+                   codecmd=code;
+                   that.log("发送命令："+codecmd);
+               }else{
+                   that.log("发送命令："+code);
+               }
+               var uri="index.php?a=zmq&cmd="+codecmd;
                that.commonajax(uri,commonC.callback,'custom');
            }else{
                that.log("亲，发个命令撒");
            }
-       })
+       });
+       $(".container-fluid #study").click(function(){
+            var studyval= $.trim($(this).val());
+            var command="f0";
+            if(studyval=="进入学习模式"){
+                command="f0";
+                $(this).val("退出学习模式");
+            }else if(studyval=="退出学习模式"){
+                command="f2";
+                $(this).val("进入学习模式");
+            }
+            that.log("发送命令："+studyval);
+            var uri="index.php?a=zmq&cmd="+command;
+            that.commonajax(uri,commonC.callback,'custom');
+       });
     },
     commonajax:function(httpurl,callback,extra){
         $.ajax({

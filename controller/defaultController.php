@@ -16,12 +16,27 @@ class defaultController extends Controller
         return $this->render("default");
     }
     public function zmqAction(){
+        $code=1;
+        $message="连接ZMQ错误";
+        $dns="tcp://localhost:5555";
         $cmd=trim($_GET['cmd']);
-        $queue = new ZMQSocket(new ZMQContext(), ZMQ::SOCKET_REQ, "MySock1");
-        $queue->connect("tcp://127.0.0.1:5555");
-        $queue->send($cmd);
-        $recv=$queue->recv();
-        return json_encode(array("code"=>0,"message"=>$recv));
+        try{
+            /*如果设置$persistent_id，在测试过程中发现如果三次连接不上，就会报
+            Uncaught exception 'ZMQSocketException' with message 'Failed to send message: Operation cannot be accomplished in current state
+            */
+            //$queue = new ZMQSocket(new ZMQContext(), ZMQ::SOCKET_REQ, "MySock1");
+            $queue = new ZMQSocket(new ZMQContext(), ZMQ::SOCKET_REQ);
+            $queue->setSockOpt(ZMQ::SOCKOPT_SNDTIMEO,1000);
+            $queue->setSockOpt(ZMQ::SOCKOPT_RCVTIMEO,1000);
+            $queue->connect($dns);
+            $queue->send($cmd);
+            $message=$queue->recv();
+            $code=0;
+        }catch (Exception $e){
+            $message=$e->getMessage();
+        }
+        $queue->disconnect($dns);
+        return json_encode(array("code"=>$code,"message"=>$message));
     }
 
     private function formatLine($data,$onelimit=3){
