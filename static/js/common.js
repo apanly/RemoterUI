@@ -14,7 +14,7 @@ var commonC={
                     var uri="index.php?a=zmq&cmd="+code;
                     that.commonajax(uri,commonC.callback,'tv');
                 }else{
-                    that.log("亲，发个命令撒");
+                    that.log("亲，发个命令撒,我很迷惑，我不知道干什么呀！！");
                 }
             })
         });
