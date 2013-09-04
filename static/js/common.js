@@ -28,10 +28,12 @@ var commonC={
                }else{
                    that.log("发送命令："+code);
                }
+               $("#codecmd").val("");
+               $("#code").val("");
                var uri="index.php?a=zmq&cmd="+codecmd;
                that.commonajax(uri,commonC.callback,'custom');
            }else{
-               that.log("亲，发个命令撒");
+               that.log("亲，发个命令撒,我很迷惑，我不知道干什么呀！！");
            }
        });
        $(".container-fluid #study").click(function(){
