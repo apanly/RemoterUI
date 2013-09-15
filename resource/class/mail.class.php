@@ -14,7 +14,7 @@ class mail
        $mail->Host = 'smtp.anjuke.com';  // Specify main and backup server
        $mail->SMTPAuth = true;                               // Enable SMTP authentication
        $mail->Username = 'Vincentguo@anjuke.com';                            // SMTP username
-       $mail->Password = '13098454432';                           // SMTP password
+       $mail->Password = 'xxxxxx';                           // SMTP password
        //$mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
        $mail->CharSet="UTF-8";
        $mail->Encoding = 'base64';
@@ -26,8 +26,6 @@ class mail
        $mail->IsHTML(true);                                  // Set email format to HTML
        $mail->Subject = $subject;
        $mail->Body    = $body;
-       echo $subject."<br/>";
-       echo $body;exit();
        if(!$mail->Send()) {
            echo 'Message could not be sent.';
            echo 'Mailer Error: ' . $mail->ErrorInfo;
